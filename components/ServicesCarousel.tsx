@@ -4,25 +4,25 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    image: "/public/survey1.jpg",
+    image: "/Services/survey1.jpg",
     title: "Hydrogeological Surveys",
     description:
       "Detailed scientific assessments to identify the most promising groundwater zones.",
   },
   {
-    image: "/public/gis.jpg",
+    image: "/Services/gis.jpg",
     title: "GIS Groundwater Mapping",
     description:
       "Accurate site mapping with GPS coordinates and geospatial analysis.",
   },
   {
-    image: "/public/drilling.jpg",
+    image: "/Services/drilling.jpg",
     title: "Borehole Drilling",
     description:
       "Professional drilling services for reliable and sustainable water access.",
   },
   {
-    image: "/public/water.jpg",
+    image: "/Services/water.jpg",
     title: "Clean Water Solutions",
     description:
       "Delivering dependable water infrastructure for homes, farms, and communities.",
