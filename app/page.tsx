@@ -104,8 +104,7 @@ export default function Home() {
     try {
       setSubmitting(true);
 
-      const response = await fetch(
-        "https://hydroquil-api.onrender.com/api/bookings/create/",
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/bookings/create/`, 
         {
           method: "POST",
           headers: {
