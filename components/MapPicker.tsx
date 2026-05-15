@@ -16,7 +16,6 @@ L.Icon.Default.mergeOptions({
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-// Types
 type LatLng = [number, number];
 
 type MapPickerProps = {
@@ -45,27 +44,29 @@ export default function MapPicker({ onSelect }: MapPickerProps) {
   const [position, setPosition] = useState<LatLng | null>(null);
 
   return (
-    <div style={{ height: "400px", width: "100%" }}>
-      <MapContainer
-        center={[-17.8252, 31.0335]}
-        zoom={6}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
+    <div className="relative z-0 w-full">
+      <div className="h-[400px] w-full rounded-2xl overflow-hidden border border-gray-200">
+        <MapContainer
+          center={[-17.8252, 31.0335]}
+          zoom={6}
+          className="h-full w-full z-0"
+        >
+          <TileLayer
+            url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; OpenStreetMap contributors"
+          />
 
-        <ClickHandler
-          setPosition={setPosition}
-          onSelect={onSelect}
-        />
+          <ClickHandler
+            setPosition={setPosition}
+            onSelect={onSelect}
+          />
 
-        {position && <Marker position={position} />}
-      </MapContainer>
+          {position && <Marker position={position} />}
+        </MapContainer>
+      </div>
 
       {position && (
-        <p style={{ marginTop: 10 }}>
+        <p className="mt-3 text-sm text-gray-600">
           Selected: {position[0].toFixed(5)}, {position[1].toFixed(5)}
         </p>
       )}

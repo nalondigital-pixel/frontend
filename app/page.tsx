@@ -163,20 +163,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MAP */}
-      <section id="map-section" className="py-16 bg-gray-50 px-6 md:px-10">
-        <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl p-6">
-          <h2 className="text-2xl font-bold mb-4">Select Your Site Location</h2>
+            {/* MAP SECTION */}
+<section id="map-section" className="py-16 bg-gray-50 px-6 md:px-10">
+  <div className="max-w-6xl mx-auto">
+    <div className="bg-white rounded-3xl shadow-xl p-6 relative z-10">
+      <h2 className="text-2xl font-bold mb-4">Select Your Site Location</h2>
 
-          <MapPicker
-            onSelect={(pos: Position) => {
-              setLocation(pos);
-              setErrorMessage("");
-              setQuote(calculateQuote(pos));
-            }}
-          />
-        </div>
-      </section>
+      <MapPicker
+        onSelect={(pos: Position) => {
+          setLocation(pos);
+          setErrorMessage("");
+          setQuote(calculateQuote(pos));
+        }}
+      />
+    </div>
+  </div>
+</section>
+
+{/* QUOTE SECTION */}
+{location && (
+  <section className="px-6 md:px-10 pb-10">
+    <div className="max-w-6xl mx-auto">
+      <div className="bg-teal-50 border border-teal-200 rounded-3xl p-6 shadow-sm">
+        <h3 className="font-semibold text-teal-700 text-lg">
+          Estimated Quote
+        </h3>
+
+        {quote === 80 ? (
+          <p className="text-4xl font-bold text-teal-600 mt-2">$80</p>
+        ) : (
+          <p className="text-lg font-semibold text-orange-600 mt-2">
+            Request a quotation for this location
+          </p>
+        )}
+
+        <p className="text-sm text-gray-500 mt-2">
+          Pricing is fixed for Harare, Zimbabwe. Outside Harare requires a
+          custom quotation.
+        </p>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* FEATURES */}
       <section className="py-20 bg-white">
